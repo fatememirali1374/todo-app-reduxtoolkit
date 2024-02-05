@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import {
-  deleteTodo,
-  toggleTodo,
+  deleteAsyncTodo,
+  toggleAsyncTodos,
 } from "../features/todo/todoSlice";
 
 const TodoItem = ({ id, title, completed }) => {
@@ -12,7 +12,7 @@ const TodoItem = ({ id, title, completed }) => {
         <span className="d-flex align-items-center gap-1">
           <input
             onChange={(e) =>
-              dispatch(toggleTodo({ id, completed: !completed }))
+              dispatch(toggleAsyncTodos({ id, completed: !completed }))
             }
             type="checkbox"
             className="mr-3"
@@ -21,7 +21,7 @@ const TodoItem = ({ id, title, completed }) => {
           <span>{title}</span>
         </span>
         <button
-          onClick={() => dispatch(deleteTodo({ id }))}
+          onClick={() => dispatch(deleteAsyncTodo({ id }))}
           className="btn btn-danger"
         >
           Delete
